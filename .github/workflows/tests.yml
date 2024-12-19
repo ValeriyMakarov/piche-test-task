@@ -32,17 +32,17 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run all tests
-      if: "github.event.inputs.deployment_target = 'All tests'"
+      if: "github.event.inputs.deployment_target == 'All tests'"
       run:
         pytest
 
     - name: Run API tests
-      if: "github.event.inputs.deployment_target = 'API tests'"
+      if: "github.event.inputs.deployment_target == 'API tests'"
       run:
         pytest -m API
 
     - name: Run UI tests
-      if: "github.event.inputs.deployment_target = 'UI tests'"
+      if: "github.event.inputs.deployment_target == 'UI tests'"
       run:
         pytest -m UI
 
