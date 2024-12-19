@@ -26,13 +26,13 @@ I also configured CI/CD to run tests manually from Github actions. Please check 
 * Go to File > Settings > Project > Python interpreter.
 ![Venv creation](media/venv_creation.png)
 * Click Add button and choose Base interpreter, then click Ok button.
-![Venv creation](media/venv_creation2.png)
+![Venv creation](media/venv_creation2.PNG)
 * Click Apply.
-![Venv has been created](media/venv.png)
+![Venv has been created](media/venv.PNG)
 * Open terminal in Pycharm. Venv should be activated.
-![Terminal](media/terminal.png)
+![Terminal](media/terminal.PNG)
 3. Run `-r requirements.txt` to install all needed python modules.
-![Installing requirements](media/requirements.png)
+![Installing requirements](media/requirements.PNG)
 4. Run `pytest` or `pytest -m ` + any mark from next list: smoke, ui, api.
 
 You can observe test logs in console or open `test_run_data` folder and look through the files.
@@ -40,7 +40,7 @@ You can observe test logs in console or open `test_run_data` folder and look thr
 ### You can run it in Github
 1. Contact me and send me your email or Github nickname, so I can add you as collaborator to repository.
 2. Open Git Actions and go to "Run tests on demand" workflow.
-![Git actions](media/git_actions.png)
+![Git actions](media/git_actions.PNG)
 3. Click "Run workflow" and choose which tests you would like to run.
 ![Run tests](media/run_tests_git.png)
 
