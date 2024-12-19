@@ -1,7 +1,17 @@
 name: Run tests on demand
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: Choose test scope
+        required: true
+        default: All tests
+        type: choice
+        options:
+          - All tests
+          - API tests
+          - UI tests
 
 jobs:
   run_tests:
@@ -21,12 +31,23 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run tests
+    - name: Run all tests
+      if: "github.event.inputs.deployment_target = 'All tests'"
       run:
         pytest
 
+    - name: Run API tests
+      if: "github.event.inputs.deployment_target = 'API tests'"
+      run:
+        pytest -m API
+
+    - name: Run UI tests
+      if: "github.event.inputs.deployment_target = 'UI tests'"
+      run:
+        pytest -m UI
+
     - name: Upload logs
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: logs
         path: test_run_data/
