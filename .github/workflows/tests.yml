@@ -39,12 +39,12 @@ jobs:
     - name: Run API tests
       if: "github.event.inputs.deployment_target == 'API tests'"
       run:
-        pytest -m API
+        pytest -m api
 
     - name: Run UI tests
       if: "github.event.inputs.deployment_target == 'UI tests'"
       run:
-        pytest -m UI
+        pytest -m ui
 
     - name: Upload logs
       uses: actions/upload-artifact@v4
